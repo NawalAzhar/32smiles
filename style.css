@@ -1,0 +1,321 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+font-family: "Roboto Slab", serif; /* Change font-family to Playfair Display */
+}
+
+body{
+    /* Linear gradient from top to bottom */
+    background: linear-gradient(to right, #98dcfc, #4eb6e6);
+}
+
+/* navbar */
+.navbar-brand:hover img {
+  animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+  transform: translate(0px, 8px);
+  transition: transform 0.8s ease; /* Adding transition for smooth animation */
+}
+
+/* Reset box-sizing for all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Styles for the carousel container */
+.carousel {
+  width: 100vw; /* Full width of the viewport */
+  height: 90vh; /* 85% of the viewport height */
+  position: relative; /* Relative positioning for absolute positioning of slides and buttons */
+}
+
+/* Remove default margin and padding for the carousel slides */
+.carousel > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Styles for individual slides */
+.slide {
+  position: absolute; /* Position slides absolutely within the carousel */
+  inset: 0; /* Inset the slide to cover the entire carousel */
+  opacity: 0; /* Initially hide slides */
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
+}
+
+/* Styles for images inside the slides */
+.slide > img {
+  display: block; /* Display images as blocks */
+  width: 100%; /* Make images fill the entire slide width */
+  height: 100%; /* Make images fill the entire slide height */
+  object-fit: cover; /* Cover the entire slide area with the image */
+  object-position: center; /* Center the image within the slide */
+}
+
+/* Styles for active slide */
+.slide[data-active] {
+  opacity: 1; /* Make active slide visible */
+  z-index: 1; /* Bring active slide to the front */
+}
+
+/* Styles for carousel buttons */
+.carousel-button {
+  position: absolute; /* Position buttons absolutely within the carousel */
+  z-index: 2; /* Place buttons above slides */
+  top: 50%; /* Position buttons vertically centered */
+  transform: translateY(-50%); /* Adjust vertical position */
+  border-radius: .25rem; /* Add border radius */
+  padding: 0 .5rem; /* Add padding */
+  background: none; /* Remove background */
+  border: none; /* Remove border */
+}
+
+.carousel-button img {
+  width: 50px; /* Adjust the width of the image */
+  height: 50px; /* Adjust the height of the image */
+}
+
+/* Styles for previous button */
+.carousel-button.prev {
+  left: 1rem; /* Position previous button to the left */
+}
+
+/* Styles for next button */
+.carousel-button.next {
+  right: 1rem; /* Position next button to the right */
+}
+
+/* about section */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 50px auto;
+  max-width: 1200px;
+}
+
+.about-text {
+  width: 50%;
+  padding-left: 50px; /* Adjust padding to create space between text and animation */
+  padding-right: 50px;
+}
+
+.about-img {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+  }
+
+  .about-text,
+  .about-img {
+    width: 100%;
+    padding: 0 20px; /* Add padding for better spacing on smaller screens */
+  }
+}
+
+/* services cards */
+.card-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.card{
+  width: 250px;
+  /* height: auto; */
+  position: relative;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  padding: 20px;
+  transition: all .3s ease-in;
+}
+
+.card .card-image{
+  height: 90px;
+  width: 90px;
+  border: 4px double #022a3c;
+  border-radius: 60%;
+  background-position: center;
+  background: cover; 
+  background-repeat: no-repeat;
+}
+.card .card-title{
+  padding: 9px 9px;
+  font-size: 1.5rem;
+  text-shadow: 1px 0px 2px #262654;
+}
+.card:nth-child(1) .card-image{
+  background-image: url(./agenda.png);
+}
+.card:nth-child(2) .card-image{
+  background-image: url(./icons8-dentist-visit-64.png);
+}
+.card:nth-child(3) .card-image{
+  background-image: url(./kk.png);
+}
+.card:nth-child(4) .card-image{
+  background-image: url(./braces.png);
+}
+
+.card:hover{
+  background: rgb(179, 226, 255);
+  color: black;
+  box-shadow: 0px 0px 11px 5px rgb(0, 65, 117);
+}
+
+.services-section{
+  text-align: center;
+  padding:20px;
+}
+
+.services-section h2{
+  text-align: center;
+  padding-bottom:20px;
+}
+
+/* Testimonial section */
+#testimonial-container {
+  position: relative;
+  margin: 30px;
+}
+
+#testimonial-container h1 {
+  text-align: center; /* Center the text horizontally */
+}
+
+#client {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap */
+  justify-content: center;
+  align-content: center;
+}
+
+#client-item {
+  margin: 10px;
+  flex: 0 0 calc(20% - 20px); /* Adjust item width for responsiveness */
+  transition: transform 0.3s ease; /* Add transition for smooth scaling */
+}
+
+#client img {
+  width: 100%; /* Adjust width to fit container */
+  height: auto;
+}
+
+#client-item:hover {
+  transform: scale(1.8); /* Increase size on hover */
+}
+
+/* If you're not using the background image, you can remove this */
+#client::before {
+  content: "";
+  background-image: url('./caroline-lm--m-4tYmtLlI-unsplash.jpg');
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.87;
+}
+
+/* contact us section */
+
+#contactUS {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.contact-background {
+  background-image: url("./pexels-shvets-production-8413088.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#contact-box {
+  width: 60%;
+  max-width: 600px;
+  padding: 30px;
+  text-align: left;
+}
+
+#contact-box textarea,
+#contact-box input {
+  width: calc(100% - 20px); /* Adjust width of form elements */
+  border-radius: 12px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-bottom: 15px;
+}
+
+#contact-box label {
+  font-size: 1rem;
+  text-align: left;
+  margin-bottom: 5px;
+  display: block;
+}
+
+#contact-box button[type="submit"] {
+  background-color: lightblue; 
+  color: #000000; /* Black */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#contact-box button[type="submit"]:hover {
+  background-color: lightskyblue; 
+}
+
+/* Media Query for Responsive Design */
+@media only screen and (max-width: 768px) {
+  #client-item {
+      flex-basis: calc(33.33% - 20px); /* Adjust item width for smaller screens */
+  }
+
+  #contact-box {
+      padding: 20px; /* Adjust padding for smaller screens */
+      width: 80%; /* Adjust width of contact box */
+      max-width: 400px; /* Adjust max-width of contact box */
+  }
+
+  #contact-box textarea,
+  #contact-box input {
+      width: calc(100% - 10px); /* Adjust width of form elements */
+      font-size: 0.9rem; /* Decrease font size for smaller screens */
+  }
+
+  #contact-box label {
+      font-size: 0.9rem; /* Decrease font size for smaller screens */
+  }
+}
